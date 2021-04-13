@@ -2,11 +2,16 @@
 
 {% block content %}
 <div class="container">
+    <div class="row">
+        123456758
+    </div>
+</div>
+<div class="container">
     <div class="row justify-content-end">
          <div class="col-12">
             {% for post in posts %}
-            <div class="card col-12" style="width: 18rem; margin-top: 30px;">
-                <!--<div class="post-buttons" style="margin-top:10px;margin-bottom:10px;">
+            <div class="card col-8" style="width: 18rem; margin-top: 30px;">
+                <div class="post-buttons" style="margin-top:10px;margin-bottom:10px;">
                     <span class="card-title writer">
                         {% if post.user.image %}
                             <img src="{{ post.user.image.url }}" alt="" class="thumbnail-image">
@@ -26,16 +31,35 @@
                     <a href="{% url 'posts:delete' post.pk %}" class="btn btn-primary right" style="margin-left: 15px;">삭제</a>
                     <a href="{% url 'posts:edit' post.pk %}" class="btn btn-primary right">수정</a>
                     {% endif %}
-                </div>-->
+                </div>
                 <!--{% if post.image %}
                     <img src="{{ post.image.url }}" class="card-img-top" alt="...">
                 {% endif %}  image-->
-
                 <div class="card-body">
                     <h5 class="card-title">{{ post.title }}</h5>
-                    <a href="{% url 'users:show' post.user.pk %}" style="color:black;">
-                            {{ post.user.username }}
-                    </a>
+                    <!--<span id="likes-count-{{ post.pk }}">{{ post.liked_users_count }}</span>명이 좋아합니다.-->
+                    <!--{% if user in post.liked_users.all %}
+                        <a href="#" class="like_toggle" data-post-id="{{ post.pk }}">좋아요 취소</a>
+                    {% else %}
+                        <a href="#" class="like_toggle" data-post-id="{{ post.pk }}">좋아요</a>
+                    {% endif %}-->
+                    <!--<p class="card-text" style="margin-top: 30px;">{{ post.content }}</p>-->
+
+                    <!--<form action="#" method="POST" style="margin-top: 50px;" class="create-comment-form">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <textarea class="form-control" name="message" id="comment-input-{{ post.pk }}" aria-describedby="emailHelp" placeholder="댓글 달기..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary right comment-submit-button" data-post-id="{{ post.pk }}">작성</button>
+                    </form> <br>-->
+
+                    {% if post.comments %}
+                    <ul class="list-group" id="comments-list-{{ post.pk }}" style="margin-top: 40px;">
+                        {% for comment in post.comments %}
+                            {% include 'comments/_comment.html' with comment=comment user=user %}
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
                 </div>
             </div>
         <!-- </div> -->

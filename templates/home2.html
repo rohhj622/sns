@@ -2,49 +2,14 @@
 
 {% block content %}
 <div class="container">
-    <div class="row justify-content-end">
-         <div class="col-12">
-            {% for post in posts %}
-            <div class="card col-12" style="width: 18rem; margin-top: 30px;">
-                <!--<div class="post-buttons" style="margin-top:10px;margin-bottom:10px;">
-                    <span class="card-title writer">
-                        {% if post.user.image %}
-                            <img src="{{ post.user.image.url }}" alt="" class="thumbnail-image">
-                        {% endif %}
-                        <a href="{% url 'users:show' post.user.pk %}" style="color:black;">
-                            {{ post.user.username }}
-                        </a>
-                    </span>
-                    {% if user != post.user %}
-                        {% if user in post.user.followers.all %}
-                            <a href="{% url 'users:follow_toggle' post.user.id %}" class="btn btn-primary right" data-remote="true">팔로우 취소</a>
-                        {% else %}
-                            <a href="{% url 'users:follow_toggle' post.user.id %}" class="btn btn-primary right" data-remote="true">팔로우</a>
-                        {% endif %}
-                    {% endif %}
-                    {% if user == post.user %}
-                    <a href="{% url 'posts:delete' post.pk %}" class="btn btn-primary right" style="margin-left: 15px;">삭제</a>
-                    <a href="{% url 'posts:edit' post.pk %}" class="btn btn-primary right">수정</a>
-                    {% endif %}
-                </div>-->
-                <!--{% if post.image %}
-                    <img src="{{ post.image.url }}" class="card-img-top" alt="...">
-                {% endif %}  image-->
-
-                <div class="card-body">
-                    <h5 class="card-title">{{ post.title }}</h5>
-                    <a href="{% url 'users:show' post.user.pk %}" style="color:black;">
-                            {{ post.user.username }}
-                    </a>
-                </div>
-            </div>
-        <!-- </div> -->
-        {% endfor %}
-        </div>
+    <div class="row">
+        123456758
     </div>
-
 </div>
-<!--
+<div>
+    <div class=""></div>
+</div>
+
 <div class="container" style="margin-top: 50px; margin-bottom: 200px;">
     <div class="row justify-content-end">
         <div class="col-4" style="margin-top: 30px;">
@@ -116,10 +81,10 @@
                     {% endif %}
                 </div>
             </div>
-        &lt;!&ndash; </div> &ndash;&gt;
+        <!-- </div> -->
         {% endfor %}
     </div>
-</div>-->
+</div>
 {% endblock content %}
 
 {% block js %}
